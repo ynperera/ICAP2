@@ -1,0 +1,5 @@
+﻿var ResponseProcessor = (function () {
+
+    return {}
+
+})();

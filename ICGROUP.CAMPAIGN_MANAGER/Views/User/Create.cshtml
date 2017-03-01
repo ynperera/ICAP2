@@ -1,0 +1,82 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="gridContainer clearfix">
+    <div class="outer_wrapper">
+        <div class="inner_wrapper">
+            <div id="user_add_title_div" class="fluid sec_title_1">
+              <span id="divUserFormTitle"> </span>
+                <span>
+                    <input id="btnResetPassword" type="button" class="btn_1 side_2" value="Reset Password" onclick="User.sendPasswordResetRequest()" />
+                </span>
+            </div>
+            <div class="fluid news_entry sec_sep">
+                <div class="sec_sep full_width">
+                </div>
+                <div class="col">
+                </div>
+                <div class="col mid">
+                    <ul>
+                        <li class="inpt_lbl side_1 b_lbl">Email Address</li>
+                        <li>
+                            <span class="add_selected_col_1">
+                                <input id="txtEmail" type="text" />
+                            </span>
+                        </li>
+                        <li class="inpt_lbl side_1 b_lbl">First Name</li>
+                        <li>
+                            <span class="add_selected_col_1">
+                                <input id="txtFirstName" type="text" />
+                            </span>
+                        </li>
+
+                        <li class="inpt_lbl side_1 b_lbl">Last Name</li>
+                        <li>
+                            <span class="add_selected_col_1">
+                                <input id="txtLastName" type="text" />
+                            </span>
+                        </li>
+
+                        <li class="inpt_lbl side_1 b_lbl">Organization</li>
+                        <li>
+                            <span class="add_selected_col_1">
+                                <select id="ddlOrganization">
+                                    <option value="1">Microsoft</option>
+                                    <option value="2">Google</option>
+                                </select>
+                            </span>
+                        </li>
+                        <li class="inpt_lbl side_1 b_lbl">Role</li>
+                        <li>
+                            <span class="add_selected_col_1">
+                                <select id="ddlRole">
+                                    <option value="1">Role1</option>
+                                    <option value="2">Role2</option>
+                                </select>
+                            </span>
+                        </li>
+                        <li>
+                            <input id="btnSaveUSer" type="button" permit="input_ctrl" class="btn_1 " value="Create User" onclick="User.saveUser()" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="col">
+                </div>
+                <div class="sec_sep full_width">
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/user");
+@Scripts.Render("~/bundles/service");
+<script type="text/javascript">
+
+    $(function ($) {
+        User.init();
+    });
+
+</script>

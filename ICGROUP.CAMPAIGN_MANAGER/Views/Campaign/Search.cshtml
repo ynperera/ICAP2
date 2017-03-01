@@ -1,0 +1,25 @@
+﻿@{
+  
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="news_search_div" class="gridContainer clearfix">
+    <div class="outer_wrapper">
+        <div class="inner_wrapper">
+            <div id="campaign_search_title_div" class="fluid sec_title_1">Campaing List</div>
+            <div class="fluid news_result_wrapper">
+                <table id="campaignDataTable"></table>
+                <div id="campaignPageDiv"></div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/grid");
+ @Scripts.Render("/Scripts/jquery.jqGrid.min.js")
+@Scripts.Render("~/bundles/campaign");
+
+<script type="text/javascript"><a href="~/App_Start/">~/App_Start/</a>
+    Campaign.search();
+</script>
+

@@ -1,0 +1,90 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="gridContainer clearfix">
+    <div class="outer_wrapper">
+        <div class="inner_wrapper">
+            <div id="campaign_cont_title_div">
+                <span class="sec_title_1">User List </span>
+                <span>show <Select id="ddlPageSize" onchange="Search.setPageSize()">  <option value="10">10</option>
+                                    <option value="25">25</option>
+                     <option value="50">50</option>
+                           </Select> Enties</span>
+                <span>
+                    <input id="btn_addNewUser" type="button" class="btn_1" value="+ Create New User" onclick="Search.addNewUser()" />
+                </span>
+                <span>
+                    <input id="txtSearchText" type="text" />
+                </span>
+                <span>
+                    <input id="btnSearch" type="button" class="btn_1 " value="" onclick="Search.searchByKey()" />
+                </span>
+            </div>
+            <div>
+                <span>User Role</span>
+                <span>Administrator</span>
+                <span>Legal Administrator</span>
+                <span>Legal Editor</span>
+                <span>Legal Viewer</span>
+
+            </div>
+            <div class="fluid news_entry sec_sep">
+                <table id="tbResults" border="1">
+                    <th>
+                        <span>Email Address</span>
+                        <span>
+                            <input type="button" value="⇵" onclick="Search.sort('E')" /></span>
+                    </th>
+                    <th>
+                        <span>First Name</span>
+                        <span>
+                            <input type="button" value="⇵" onclick="Search.sort('F')" /></span>
+                    </th>
+                    <th>
+                        <span>Last Name</span>
+                        <span>
+                            <input type="button" value="⇵" onclick="Search.sort('L')" /></span>
+                    </th>
+                    <th>
+                        <span>Organization</span>
+                        <span>
+                            <input type="button" value="⇵" onclick="Search.sort('O')" /></span>
+                    </th>
+                    <th>
+                        <span>Current Status</span>
+                        <span>
+                            <input type="button" value="⇵" onclick="Search.sort('S')" /></span>
+                    </th>
+                    <th>
+                        <span>Created</span>
+                        <span>
+                            <input type="button" value="⇵" onclick="Search.sort('C')" /></span>
+                    </th>
+                    <th>Action</th>
+
+                   
+                </table>
+                <div id="divPagination"></div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/user");
+@Scripts.Render("~/bundles/service");
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="/Scripts/jquery.twbsPagination.js" type="text/javascript"></script>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script type="text/javascript">
+
+    $(function ($) {
+       // $('input[type="checkbox"]').onoff();
+        Search.initSearch();
+    });
+
+</script>

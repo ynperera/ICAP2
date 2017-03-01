@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "";
+
+    var version = typeof(ICGROUP.CAMPAIGN_MANAGER.MvcApplication).Assembly.GetName().Version;
+    var language = ViewBag.language;
+    var resLang = "en";
+
+    if (language != "")
+    {
+        resLang = language;
+    }
+    ViewBag.resourceLang = resLang;
+}
+
+@Styles.Render("~/Content/css");
+@Scripts.Render("~/bundles/login");
+@Scripts.Render("~/bundles/jquery");
+@Scripts.Render("~/bundles/util");
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <title>Campaign Manager</title>
+
+</head>
+<body>
+    <div id="login_div" class="gridContainer clearfix">
+        <div class="outer_wrapper">
+            <div class="inner_wrapper">
+                <div class="login_wrapper">
+                    <div class="login_inner_wrapper">
+                        <div class="login_header">
+                            <ul>
+                                <li>
+                                    <img alt="IC Group Logo" src="/Images/Application/Common/login_title_1.png"></li>
+                                <li><span class="login_logotitle">Campaign Manager</span></li>
+                            </ul>
+                        </div>
+                            <div id="login_control_div" class="clearfix login_body">
+                                <ul>
+                                    <li id="login_username" class="b_lbl">User Name</li>
+                                    <li>
+                                        <input id="txt_login_username" type="text" class="usr-ctrl" tag="enter-focus"/></li>
+                                    <li id="login_password" class="b_lbl">Password</li>
+                                    <li>
+                                        <input id="txt_login_password" type="password" class="usr-ctrl" tag="enter-focus"  /></li>
+                                    <li id="login_language" class="b_lbl"></li>
+                                    
+                                    <li>
+                                        <label class="login_msg" data-bind="html: loginMsg"></label>
+                                    </li>
+                                    <li>
+                                        <button id="login_btn" class="btn_1 btn_login" tag="enter-focus" onclick="Login.loginUser()">
+                                            <span id="login_button" class="">Login</span>
+                                            <span class="login_spinner"></span>
+                                        </button>
+                                    </li>
+                                    <li><a href="/User/ForgotPassword" class="login_msg">Forgot your password?</a></li>
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="login_popup_container" class="gridContainer clearfix" style="display: none">
+        <div id="master_popup_div" class="notification_box success">
+            <div class="notification_title">
+                <h3>
+                    <span id="msg_title_span"></span>
+                </h3>
+                <input id="msg_title_close" type="button" class="img_sprite_1 icn_close_2" value="" />
+            </div>
+            <div class="msg_body">
+                <div class="img_sprite_2 msg_icon">
+                </div>
+                <div id="msg_body_holder" class="notification_msg">
+                </div>
+            </div>
+            <span class="clearfix"></span>
+            <div class="btn_wrapper">
+                <input id="msg_popup_ok" type="button" class="btn_1" />
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+  /*  $(document).ready(function () { 
+        $('[tag=enter-focus]').keypress(function (e) {
+            if (e.which == 13) {
+              //  alert("hi");
+               // $("#login_btn").trigger('click');
+                Login.loginUser();
+            }
+        });
+    });*/
+
+    
+</script>

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{21D66672-E10F-4B61-A5B1-F98ACD83A513}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ICGROUP.CAMPAIGN_MANAGER.DATA</RootNamespace>
+    <AssemblyName>ICGROUP.CAMPAIGN_MANAGER.DATA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataGatewayBase.cs" />
+    <Compile Include="CampaignDataGateway.cs" />
+    <Compile Include="ClausesDataGateway.cs" />
+    <Compile Include="DBReferences\ColumnNames.cs" />
+    <Compile Include="DBReferences\OtherParameters.cs" />
+    <Compile Include="DBReferences\StoredProcedureNames.cs" />
+    <Compile Include="DBReferences\TableNames.cs" />
+    <Compile Include="MasterDataGateway.cs" />
+    <Compile Include="OrganizationsReader.cs" />
+    <Compile Include="UserReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ReadMapperBase.cs" />
+    <Compile Include="ObjectReaderBase.cs" />
+    <Compile Include="ObjectWriterBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserDataGateway.cs" />
+    <Compile Include="UserEditer.cs" />
+    <Compile Include="ReadUserMapper.cs" />
+    <Compile Include="UserRemover.cs" />
+    <Compile Include="UserStatusUpdater.cs" />
+    <Compile Include="UserWriter.cs" />
+    <Compile Include="WriteMapperBase.cs" />
+    <Compile Include="WriteUserMapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ICGROUP.CAMPAIGN_MANAGER.COMMON\ICGROUP.CAMPAIGN_MANAGER.COMMON.csproj">
+      <Project>{168690a4-5c58-4c29-ac7b-08255cc812f5}</Project>
+      <Name>ICGROUP.CAMPAIGN_MANAGER.COMMON</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

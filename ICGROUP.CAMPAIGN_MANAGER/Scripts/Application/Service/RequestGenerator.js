@@ -1,0 +1,4 @@
+﻿var RequestGenerator = (function () {
+
+    return {}
+})();

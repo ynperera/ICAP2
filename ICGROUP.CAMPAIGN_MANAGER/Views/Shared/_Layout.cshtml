@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {        
+        
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/util")
+        @Styles.Render("~/Content/themes/light/jquery-ui-1.10.4.custom.css")
+        @Styles.Render("~/Content/style-en.css")    
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("/Scripts/jquery.mmenu.js")
+        @Scripts.Render("/Scripts/main.menu.js")
+        @Styles.Render("/Content//menu-en.css")
+    }
+    else
+    {
+        var version = typeof(ICGROUP.CAMPAIGN_MANAGER.MvcApplication).Assembly.GetName().Version;
+        
+        @Scripts.Render("~/bundles/modernizr?ver=" + version)
+        @Scripts.Render("~/bundles/jquery?ver=" + version)
+        @Scripts.Render("~/bundles/jqueryui?ver=" + version)
+        @Styles.Render("~/Content/themes/light/jquery-ui-1.10.4.custom.css?ver=" + version)
+        @Styles.Render("~/Content/style-en.css?ver=" + version)   
+        @Styles.Render("~/Content/css?ver=" + version)
+    }
+
+    <script type="text/javascript">
+        //   window.onload = Util.Validation.isLoggedIn;
+
+        $(function () {
+            $('nav#menu').mmenu({
+                slidingSubmenus: false
+            });
+        });
+    </script>
+
+</head>
+<body id="mainContainer">
+    <div class="gridContainer clearfix" id="page">
+        <div class="fluid header_wrapper">
+            <div class="fluid header">
+                @*  <ul>
+                    <li>
+                        <img src="/Images/Application/Common/main_logo.png" alt="IC Group Logo" /></li>
+                    <li><span class="header_logotitle">Campaign Manager</span></li>
+                </ul>*@
+            </div>
+        </div>
+        <div id="wrap">
+            <div class="main_nav_wrapper">
+                <div id="main_link_div" class="main_nav_link">
+                    <a id="menu-toggle" class="button dark" href="#"><i class="icon-reorder"></i></a>
+                    <div class="side_link">
+                        <a id="hrefHome" class="navlink"></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a id="hrefLogout" href="#" class="navlink"></a>
+                    </div>
+                    <nav id="navigation">
+                        <ul id="main-menu">
+                            @* <li class="current-menu-item parent">
+                                <a id="menu_campaign" href="#"></a>
+                                <ul id="submenu_campaign" class="sub-menu">
+                                </ul>
+                            </li>*@
+                            <li class="current-menu-item parent">
+                                <a id="menu_dashboard" href="#"></a>
+                            </li>
+                            <li class="current-menu-item parent">
+                                <a id="menu_campaigns" href="#"></a>
+                            </li>
+                            <li class="current-menu-item parent">
+                                <a id="menu_legal_tempaltes" href="#"></a>
+                            </li>
+
+                            <li class="current-menu-item parent">
+                                <a id="menu_people" href="/User/Search"></a>
+                            </li>
+
+                            <li class="current-menu-item parent">
+                                <a id="menu_support" href="#"></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div id="master_popup_container" class="gridContainer clearfix" style="display: none">
+        <div id="master_popup_div" class="notification_box success">
+            <div class="notification_title">
+                <h3>
+                    <span id="msg_title_span"></span>
+                </h3>
+                <input id="msg_title_close" type="button" class="img_sprite_1 icn_close_2" value="" />
+            </div>
+            <div class="msg_body">
+                <div class="img_sprite_2 msg_icon">
+                </div>
+                <div id="msg_body_holder" class="notification_msg">
+                </div>
+            </div>
+            <span class="clearfix"></span>
+            <div class="btn_wrapper">
+                <input id="msg_popup_ok" type="button" class="btn_1" value="Ok" />
+                <input id="msg_popup_cancel" type="button" class="btn_1" style="display: none" value="Cancel" />
+            </div>
+        </div>
+    </div>
+    <div id="loading_popup_container" class="gridContainer clearfix" style="display: none">
+        <div id="loading_popup_div">
+            <div class="msg_body">
+                <div id="loading_body_holder" class="notification_msg">
+                </div>
+            </div>
+            <span class="clearfix"></span>
+        </div>
+    </div>
+
+    <div id="body">
+
+        <section>
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+    </footer>
+
+    <script type="text/javascript">
+
+        // this is a temporary fix to generate master page content in language wise.
+        Layout.init();
+        //$(document).ready(function () {
+        //    MasterLayout.init();
+        //});
+    </script>
+
+
+</body>
+</html>
+
+
